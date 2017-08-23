@@ -2,9 +2,10 @@
 1) В BBV_data используются сторонние сервисы таке как: PostgreSQL 9.4, Influxdb v1.3.1, Grafana 4.4.2.
 Их можно скачать на официальных сайтах разработчиков.
 2) Подключаемся к серверу PostgreSQL «cam». По адресу 192.168.1 . Открываем базу данных с помощью sql запроса sql.Open. С помощью скрипта SELECT вытаскиваем данные за нужный нам период. Получаем данные и отправляем во временную базу данных influxdb. Причина использования второй базы данных influxdb следующая:  grafana( сервис для рисования таблиц и графиков) официально поддерживает influxdb , из-за чего можно рисовать нужные нам графики и таблицы. Важно не забыть в терминале создать базу данных influxdb:
+
 influx
 
-> create user monitor with password 'secret'
+> create user monitor with password '******'
 > grant all privileges to monitor
 
 > create database cola
