@@ -7,7 +7,6 @@ import (
 	"fmt"
 	//"time"
 	//"strconv"
-
 	"github.com/influxdata/influxdb/client/v2"
 )
 
@@ -26,16 +25,9 @@ type DbInfo struct {
 	fear string
 	sadness string
 	neutrall string
-
 }
-
 var DBObject DbInfo
 var DbArray []DbInfo
-
-
-
-
-
 
 func main() {
 	//timeDayAgoForQuery := getTimeStamp() //lines 42-45 to sort data by the date you need. It uses timestamp convertion.
@@ -62,7 +54,6 @@ func main() {
 	}
 }
 func InfluxData() {
-
 	// Make client
 	c, err := client.NewHTTPClient(client.HTTPConfig{
 		Addr: "http://localhost:8086",
@@ -71,7 +62,6 @@ func InfluxData() {
 		fmt.Println("Error creating InfluxDB Client: ", err.Error())
 	}
 	defer c.Close()
-
 	// Create a new point batch
 	bp, _ := client.NewBatchPoints(client.BatchPointsConfig{
 		Database:  "cola",
@@ -79,7 +69,6 @@ func InfluxData() {
 	})
 	// Create a point and add to batch
 	tags := map[string] string{
-
 	}
 	fields := map[string]interface{}{
 		"timestamp": DBObject.timestamp,
