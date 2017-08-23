@@ -64,8 +64,7 @@ func InfluxData() {
 	defer c.Close()
 	// Create a new point batch
 	bp, _ := client.NewBatchPoints(client.BatchPointsConfig{
-		Database:  "cola",
-		Precision: "s",
+		Database:  "colasik",
 	})
 	// Create a point and add to batch
 	tags := map[string] string{
@@ -86,7 +85,7 @@ func InfluxData() {
 		"sadness": DBObject.sadness,
 		"neutrall":  DBObject.neutrall,
 		}
-	pt, err := client.NewPoint("hobbit", tags, fields)
+	pt, err := client.NewPoint("hobbitsik", tags, fields)
 	if err != nil {
 		fmt.Println("Error: ", err.Error())
 	}
